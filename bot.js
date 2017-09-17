@@ -90,10 +90,22 @@ bot.on("message",(msg)=>{
          case "about":
             msg.channel.send("Bot made using Discord.js on Node.js | Made by Warvale");
          break;
+             
+         case "kick":
+             if(!msg.guild.member(msg.author).hasPermission("KICK_MEMBERS")) return msg.reply("No permission! :x:");
+             let user = msg.mentions.user.first();
+             let reason = msg.content.split(" ").slice(2).join(" ");
+             
+             if (msg.mentions.user.size < 1) return msg.reply("You must mention **one** user!");
+             if(!reason) return msg.reply ("You must supply a reason!");
+             msg.channel.send("User kicked");
+             if(!msg.guild.member(user)
+                .kickable) return msg.reply("No permission to kick user! :x:");
+            
      }
 });
 
-
+         
 
 
 
