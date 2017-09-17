@@ -99,6 +99,7 @@ bot.on("message",(msg)=>{
              if (msg.mentions.user.size < 1) return msg.reply("You must mention **one** user!");
              if(!reason) return msg.reply ("You must supply a reason!");
              msg.channel.send("User kicked");
+             msg.guild.channels.find("name" ,"warvale-bot-discord-logs").send(`${msg.author.tag} has kicked a user for (reason)`)
              if(!msg.guild.member(user)
                 .kickable) return msg.reply("No permission to kick user! :x:");
             
