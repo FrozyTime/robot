@@ -253,7 +253,7 @@ var isStaff = function(member) {
 }
     
  
-// MESSAGE EVENTS
+// MESSAGE EVENTS1
 client.on(`messageDelete`, (msg) => {
     if (msg.author.bot) return;
     log(`A message by **${msg.author.tag} (${msg.author.id})** was removed.\n\n**Channel:** <#${msg.channel.id}>\n**Content:** ${msg.content}`);
